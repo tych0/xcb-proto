@@ -506,7 +506,6 @@ class ComplexType(Type):
         self.nmemb = 1
         self.size = 0
         self.lenfield_parent = [self]
-        self.fds = []
 
         # get required_start_alignment
         required_start_align_element = elt.find("required_start_align")
