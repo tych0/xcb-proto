@@ -333,6 +333,9 @@ class ListType(Type):
         self.member.resolve(module)
         self.expr.resolve(module, self.parents)
 
+        # resolve() could have changed the size (ComplexType starts with size 0)
+        self.size = self.member.size if self.member.fixed_size() else None
+
         self.required_start_align = self.member.required_start_align
 
         # Find my length field again.  We need the actual Field object in the expr.
