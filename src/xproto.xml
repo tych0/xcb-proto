@@ -1087,7 +1087,20 @@ The number of keycodes altered.
   </event>
 
   <event name="GeGeneric" number="35" xge="true">
-    <pad bytes="22" />
+    <field type="BYTE" name="type" />
+    <field type="CARD8" name="extension" />
+    <field type="CARD16" name="sequenceNumber" />
+    <field type="CARD32" name="length" />
+    <field type="CARD16" name="evtype" />
+    <list type="void" name="data">
+      <op op="+">
+        <op op="*">
+          <fieldref>length</fieldref>
+          <value>4</value>
+        </op>
+        <value>32</value>
+      </op>
+    </list>
     <doc>
       <brief>generic event (with length)</brief>
       <field name="extension"><![CDATA[
